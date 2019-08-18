@@ -379,7 +379,6 @@ func EngineCharCreate(config ConfigCharacter) *CaptchaImageChar {
 
 	switch config.Mode {
 	case CaptchaModeAlphabet:
-		captchaContent = "abrCEr" //randText(config.CaptchaLen, TxtAlphabet)
 		captchaImage.VerifyValue = captchaContent
 	case CaptchaModeArithmetic:
 		captchaContent, captchaImage.VerifyValue = randArithmetic()
@@ -389,7 +388,6 @@ func EngineCharCreate(config ConfigCharacter) *CaptchaImageChar {
 		captchaImage.VerifyValue = captchaContent
 	default:
 		captchaContent = randText(config.CaptchaLen, TxtSimpleCharaters)
-		captchaContent = "abrCEr" //randText(config.CaptchaLen, TxtAlphabet)
 		captchaImage.VerifyValue = captchaContent
 	}
 	//写入string
