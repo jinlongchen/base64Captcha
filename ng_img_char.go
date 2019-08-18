@@ -322,14 +322,14 @@ func (captcha *CaptchaImageChar) drawText(text string, isSimpleFont bool) error 
 		}
 		c.SetFont(f)
 
-		fontSize := float64(captcha.ImageHeight) * (1.0 + rand.Float64()/10)
+		fontSize := float64(captcha.ImageHeight) * 1.3 //(1.5 + rand.Float64()/10)
 		c.SetFontSize(fontSize)
 
 		x := fontWidth*i + fontWidth/int(fontSize) + int(rand.Float64()*3.0-1.0)
 		if i == 0 {
 			x += 7
 		}
-		y := int(fontSize / (1.5 - rand.Float64()/2))
+		y := int(fontSize / (1.7 - rand.Float64()/2.5))
 		pt := freetype.Pt(x, y)
 
 		if _, err := c.DrawString(string(s), pt); err != nil {
