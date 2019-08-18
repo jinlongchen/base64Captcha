@@ -1,7 +1,7 @@
 package base64Captcha
 
 import (
-	"github.com/mojocn/base64Captcha/store"
+	"github.com/jinlongchen/base64Captcha/store"
 	"io/ioutil"
 	"os"
 	"strings"

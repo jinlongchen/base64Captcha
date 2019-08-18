@@ -13,7 +13,7 @@ import (
 func readFontsToSliceOfTrueTypeFonts() []*truetype.Font {
 	fonts := make([]*truetype.Font, 0)
 	//RitaSmith.ttf is first element for font simple mode.
-	assetFontNames := []string{"fonts/RitaSmith.ttf", "fonts/actionj.ttf", "fonts/chromohv.ttf", "fonts/Flim-Flam.ttf", "fonts/DeborahFancyDress.ttf", "fonts/DENNEthree-dee.ttf", "fonts/Comismsh.ttf", "fonts/ApothecaryFont.ttf", "fonts/3Dumb.ttf"}
+	assetFontNames := []string{"fonts/RitaSmith.ttf", "fonts/chromohv.ttf", "fonts/DENNEthree-dee.ttf", "fonts/ApothecaryFont.ttf"}
 	for _, assetName := range assetFontNames {
 		fonts = appendAssetFontToTrueTypeFonts(assetName, fonts)
 	}

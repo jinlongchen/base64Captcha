@@ -4,7 +4,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/mojocn/base64Captcha"
+	"github.com/jinlongchen/base64Captcha"
 	"log"
 	"net/http"
 )

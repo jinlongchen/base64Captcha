@@ -19,9 +19,10 @@ package base64Captcha
 import (
 	"encoding/base64"
 	"fmt"
-	"github.com/mojocn/base64Captcha/store"
+	"github.com/jinlongchen/base64Captcha/store"
 	"io"
 	"log"
+	"math/rand"
 	"os"
 	"path/filepath"
 	"strings"
@@ -39,6 +40,10 @@ var (
 	// 默认内存储存
 	globalStore = store.NewMemoryStore(GCLimitNumber, Expiration)
 )
+
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
 
 // SetCustomStore sets custom storage for captchas, replacing the default
 // memory store. This function must be called before generating any captchas.

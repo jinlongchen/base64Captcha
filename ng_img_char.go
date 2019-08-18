@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"github.com/golang/freetype"
+	"github.com/golang/freetype/truetype"
 	"golang.org/x/image/font"
 	"image"
 	"image/color"
@@ -311,23 +312,24 @@ func (captcha *CaptchaImageChar) drawText(text string, isSimpleFont bool) error 
 	fontWidth := captcha.ImageWidth / len(text)
 
 	for i, s := range text {
-
-		fontSize := float64(captcha.ImageHeight) / (1 + float64(rand.Intn(7))/float64(9))
-
 		c.SetSrc(image.NewUniform(randDeepColor()))
+
+		var f *truetype.Font
+		if isSimpleFont {
+			f = trueTypeFontFamilys[0]
+		} else {
+			f = randFontFamily()
+		}
+		c.SetFont(f)
+
+		fontSize := float64(captcha.ImageHeight) * (1.0 + rand.Float64()/10)
 		c.SetFontSize(fontSize)
 
-		if isSimpleFont {
-			c.SetFont(trueTypeFontFamilys[0])
-		} else {
-			f := randFontFamily()
-			c.SetFont(f)
+		x := fontWidth*i + fontWidth/int(fontSize) + int(rand.Float64()*3.0-1.0)
+		if i == 0 {
+			x += 7
 		}
-
-		x := int(fontWidth)*i + int(fontWidth)/int(fontSize)
-
-		y := 5 + rand.Intn(captcha.ImageHeight/2) + int(fontSize/2)
-
+		y := int(fontSize / (1.5 - rand.Float64()/2))
 		pt := freetype.Pt(x, y)
 
 		if _, err := c.DrawString(string(s), pt); err != nil {
@@ -377,7 +379,7 @@ func EngineCharCreate(config ConfigCharacter) *CaptchaImageChar {
 
 	switch config.Mode {
 	case CaptchaModeAlphabet:
-		captchaContent = randText(config.CaptchaLen, TxtAlphabet)
+		captchaContent = "abrCEr" //randText(config.CaptchaLen, TxtAlphabet)
 		captchaImage.VerifyValue = captchaContent
 	case CaptchaModeArithmetic:
 		captchaContent, captchaImage.VerifyValue = randArithmetic()
