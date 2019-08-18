@@ -389,6 +389,7 @@ func EngineCharCreate(config ConfigCharacter) *CaptchaImageChar {
 		captchaImage.VerifyValue = captchaContent
 	default:
 		captchaContent = randText(config.CaptchaLen, TxtSimpleCharaters)
+		captchaContent = "abrCEr" //randText(config.CaptchaLen, TxtAlphabet)
 		captchaImage.VerifyValue = captchaContent
 	}
 	//写入string
