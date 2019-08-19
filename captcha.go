@@ -107,6 +107,11 @@ func VerifyCaptcha(identifier, verifyValue string) bool {
 	return VerifyCaptchaAndIsClear(identifier, verifyValue, true)
 }
 
+func GetCachedCaptcha(identifier string) string {
+	storeValue := globalStore.Get(identifier, true)
+	return storeValue
+}
+
 // VerifyCaptchaAndIsClear verify captcha, return boolean value.
 // identifier is the captcha id,
 // verifyValue is the captcha image value,
