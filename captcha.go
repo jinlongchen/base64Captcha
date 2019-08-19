@@ -108,7 +108,7 @@ func VerifyCaptcha(identifier, verifyValue string) bool {
 }
 
 func GetCachedCaptcha(identifier string) string {
-	storeValue := globalStore.Get(identifier, true)
+	storeValue := globalStore.Get(identifier, false)
 	return storeValue
 }
 
