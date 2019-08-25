@@ -82,7 +82,7 @@ func randDeepColor() color.RGBA {
 
 	red := math.Abs(math.Min(float64(randColor.R)-increase, 255))
 
-	green := math.Abs(math.Min(float64(randColor.G)-increase, 255))
+	green := math.Abs(math.Min(float64(randColor.G)-increase, 127))
 	blue := math.Abs(math.Min(float64(randColor.B)-increase, 255))
 
 	return color.RGBA{R: uint8(red), G: uint8(green), B: uint8(blue), A: uint8(255)}
