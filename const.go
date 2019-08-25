@@ -7,7 +7,7 @@ const (
 	//TxtAlphabet characters for alphabet.
 	TxtAlphabet = "ABCDEFGHJKMNOQRSTUVXYZabcdefghjkmnoqrstuvxyz"
 	//TxtSimpleCharaters simple numbers and alphabet
-	TxtSimpleCharaters = "13467ertyiadfhjkxcvbnERTYADFGHJKXCVBN"
+	TxtSimpleCharaters = "3467ertyadfhjkxcvbnERTYADFGHJKXCVBN"
 
 	//MimeTypeCaptchaAudio output base64 mine-type.
 	MimeTypeCaptchaAudio = "audio/wav"

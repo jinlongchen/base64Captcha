@@ -138,7 +138,7 @@ func (captcha *CaptchaImageChar) drawSineLine() *CaptchaImageChar {
 	} else {
 		t = random(int64(captcha.ImageHeight), int64(captcha.ImageWidth/2))
 	}
-	w := float64((2 * math.Pi) / t)
+	w := (2 * math.Pi) / t
 
 	// 曲线横坐标起始位置
 	px1 := 0
